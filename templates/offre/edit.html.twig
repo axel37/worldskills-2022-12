@@ -5,7 +5,10 @@
 {% block body %}
     <h1>Modifier une offre</h1>
 
-    {{ include('offre/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    {# {{ include('offre/_form.html.twig', {'button_label': 'Mettre à jour'}) }} #}
+
+    {{ component('offre_form', {offre: offre, form: form}) }}
+
 
     <a class="btn btn-danger" href="{{ path('app_offre_index') }}">Annuler la modification</a>
 

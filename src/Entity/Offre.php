@@ -68,7 +68,7 @@ class Offre
         return $this->dateReception;
     }
 
-    public function setDateReception(\DateTimeImmutable $dateReception): self
+    public function setDateReception(?\DateTimeImmutable $dateReception): self
     {
         $this->dateReception = $dateReception;
 
@@ -80,7 +80,7 @@ class Offre
         return $this->nomDonateur;
     }
 
-    public function setNomDonateur(string $nomDonateur): self
+    public function setNomDonateur(?string $nomDonateur): self
     {
         $this->nomDonateur = $nomDonateur;
 
@@ -92,7 +92,7 @@ class Offre
         return $this->prenomDonateur;
     }
 
-    public function setPrenomDonateur(string $prenomDonateur): self
+    public function setPrenomDonateur(?string $prenomDonateur): self
     {
         $this->prenomDonateur = $prenomDonateur;
 
@@ -104,7 +104,7 @@ class Offre
         return $this->telephoneDonateur;
     }
 
-    public function setTelephoneDonateur(string $telephoneDonateur): self
+    public function setTelephoneDonateur(?string $telephoneDonateur): self
     {
         $this->telephoneDonateur = $telephoneDonateur;
 
@@ -116,7 +116,7 @@ class Offre
         return $this->mailDonateur;
     }
 
-    public function setMailDonateur(string $mailDonateur): self
+    public function setMailDonateur(?string $mailDonateur): self
     {
         $this->mailDonateur = $mailDonateur;
 

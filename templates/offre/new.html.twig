@@ -5,7 +5,10 @@
 {% block body %}
     <h1>Nouvelle offre</h1>
 
-    {{ include('offre/_form.html.twig') }}
+    {# {{ include('offre/_form.html.twig') }} #}
+    {{ component('offre_form', {offre: offre.id ? post : null, form: form}) }}
+
+
 
     <a class="btn btn-danger" href="{{ path('app_offre_index') }}">Annuler la création</a>
 {% endblock %}
