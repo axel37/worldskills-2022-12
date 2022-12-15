@@ -1,45 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Offre index{% endblock %}
+{% block title %}Toutes les offres{% endblock %}
 
 {% block body %}
-    <h1>Offre index</h1>
+    <h1>Toutes les offres</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>DateReception</th>
-                <th>NomDonateur</th>
-                <th>PrenomDonateur</th>
-                <th>TelephoneDonateur</th>
-                <th>MailDonateur</th>
-                <th>Description</th>
-                <th>actions</th>
+                {# <th>Id</th> #}
+                <th>Date de réception</th>
+                <th>Nom du donateur</th>
+                <th>Prénom du donateur</th>
+                <th>Tél. du donateur</th>
+                <th>Mail du donateur</th>
+                <th>Description de l'offre</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for offre in offres %}
             <tr>
-                <td>{{ offre.id }}</td>
-                <td>{{ offre.dateReception ? offre.dateReception|date('Y-m-d') : '' }}</td>
+                {# <td>{{ offre.id }}</td> #}
+                <td>{{ offre.dateReception ? offre.dateReception|date('d-m-Y') : '' }}</td>
                 <td>{{ offre.nomDonateur }}</td>
                 <td>{{ offre.prenomDonateur }}</td>
                 <td>{{ offre.telephoneDonateur }}</td>
                 <td>{{ offre.mailDonateur }}</td>
                 <td>{{ offre.description }}</td>
                 <td>
-                    <a href="{{ path('app_offre_show', {'id': offre.id}) }}">show</a>
-                    <a href="{{ path('app_offre_edit', {'id': offre.id}) }}">edit</a>
+                    <a href="{{ path('app_offre_show', {'id': offre.id}) }}">Détails</a>
+                    <a href="{{ path('app_offre_edit', {'id': offre.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">Aucun résultat</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_offre_new') }}">Create new</a>
+    <a href="{{ path('app_offre_new') }}">Nouvelle offre</a>
 {% endblock %}

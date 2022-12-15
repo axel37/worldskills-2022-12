@@ -7,6 +7,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Length;
 
 #[ORM\Entity(repositoryClass: OffreRepository::class)]
 class Offre
@@ -16,18 +20,26 @@ class Offre
     #[ORM\Column]
     private ?int $id = null;
 
+    #[NotBlank(message: "La date de réception ne peut être laissée vide.")]
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $dateReception = null;
 
+    #[NotBlank(message: "Le nom du donateur ne peut être laissée vide.")]
     #[ORM\Column(length: 50)]
     private ?string $nomDonateur = null;
 
+    #[NotBlank(message: "Le prénom du donateur ne peut être laissée vide.")]
     #[ORM\Column(length: 50)]
     private ?string $prenomDonateur = null;
 
+    #[NotBlank(message: "Le téléphone du donateur ne peut être laissée vide.")]
+    #[Length(min: "10", minMessage: "Le numéro de téléphone doit comporter au moins 10 caractères.")]
     #[ORM\Column(length: 15)]
     private ?string $telephoneDonateur = null;
 
+
+    #[NotBlank(message: "l'email du donateur ne peut être laissée vide.")]
+    #[Email(message: "Cet adresse mail est invalide.")]
     #[ORM\Column(length: 320)]
     private ?string $mailDonateur = null;
 

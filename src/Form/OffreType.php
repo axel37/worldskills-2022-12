@@ -6,6 +6,8 @@ use App\Entity\Etat;
 use App\Entity\Offre;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,15 +16,21 @@ class OffreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('dateReception')
+            ->add('dateReception', DateType::class, [
+                'widget' => 'single_text',
+                'input'  => 'datetime_immutable'
+            ])
             ->add('nomDonateur')
             ->add('prenomDonateur')
-            ->add('telephoneDonateur')
+            ->add('telephoneDonateur', TextType::class, [
+                'help' => 'Entre 10 et 15 caractères.'
+            ])
             ->add('mailDonateur')
             ->add('description')
             ->add('etat', EntityType::class, [
                 'class' => Etat::class
             ])
+            ->add('objets')
         ;
     }
 

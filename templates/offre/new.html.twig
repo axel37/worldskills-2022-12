@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Offre{% endblock %}
+{% block title %}Nouvelle offre{% endblock %}
 
 {% block body %}
-    <h1>Create new Offre</h1>
+    <h1>Nouvelle offre</h1>
 
     {{ include('offre/_form.html.twig') }}
 
-    <a href="{{ path('app_offre_index') }}">back to list</a>
+    <a class="btn btn-danger" href="{{ path('app_offre_index') }}">Annuler la création</a>
 {% endblock %}
