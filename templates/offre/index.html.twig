@@ -15,6 +15,7 @@
                 <th>Tél. du donateur</th>
                 <th>Mail du donateur</th>
                 <th>Description de l'offre</th>
+                <th>Nombre d'objets</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -28,6 +29,7 @@
                 <td>{{ offre.telephoneDonateur }}</td>
                 <td>{{ offre.mailDonateur }}</td>
                 <td>{{ offre.description }}</td>
+                <td>{{ offre.objets|length }}</td>
                 <td>
                     <a href="{{ path('app_offre_show', {'id': offre.id}) }}">Détails</a>
                     <a href="{{ path('app_offre_edit', {'id': offre.id}) }}">Modifier</a>

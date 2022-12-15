@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Etat;
+use App\Entity\Objet;
 use App\Entity\Offre;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -11,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 
 class OffreType extends AbstractType
 {
@@ -31,7 +33,14 @@ class OffreType extends AbstractType
             ->add('etat', EntityType::class, [
                 'class' => Etat::class
             ])
-            ->add('objets')
+            ->add('objets', LiveCollectionType::class, [
+                'entry_type' => ObjetSimpleType::class,
+                // 'entry_options' => [
+                //     'class' => Objet::class
+                // ],
+                'allow_add' => true,
+                'allow_delete' => true,
+            ])
             ->add('enregistrer', SubmitType::class)
         ;
     }

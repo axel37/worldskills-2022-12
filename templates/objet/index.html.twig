@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Objet index{% endblock %}
+
+{% block body %}
+    <h1>Objet index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Reference</th>
+                <th>Description</th>
+                <th>MontantEstime</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for objet in objets %}
+            <tr>
+                <td>{{ objet.reference }}</td>
+                <td>{{ objet.description }}</td>
+                <td>{{ objet.montantEstime }}</td>
+                <td>
+                    <a href="{{ path('app_objet_show', {'reference': objet.reference}) }}">show</a>
+                    <a href="{{ path('app_objet_edit', {'reference': objet.reference}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_objet_new') }}">Create new</a>
+{% endblock %}

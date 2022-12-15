@@ -50,7 +50,7 @@ class Offre
     #[ORM\JoinColumn(nullable: false, name: 'id_etat')]
     private ?Etat $etat = null;
 
-    #[ORM\OneToMany(mappedBy: 'offre', targetEntity: Objet::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'offre', targetEntity: Objet::class, orphanRemoval: true, cascade: ['persist'])]
     private Collection $objets;
 
     public function __construct()

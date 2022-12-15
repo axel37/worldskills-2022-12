@@ -35,6 +35,14 @@
                 <th>Description de l'offre</th>
                 <td>{{ offre.description }}</td>
             </tr>
+            <tr>
+                <th>Objets donnés</th>
+                <td>
+                {% for objet in offre.objets %}
+                    <a href={{ path('app_objet_show', {reference: objet.reference}) }}>{{ objet.description ?? objet.type }}</a>
+                {% endfor %}
+                </td>
+            </tr>
         </tbody>
     </table>
 
