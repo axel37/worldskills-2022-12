@@ -40,6 +40,14 @@ class OffreType extends AbstractType
                 // ],
                 'allow_add' => true,
                 'allow_delete' => true,
+                'button_add_options' => [
+                    'label' => 'Nouvel objet',
+                    'attr' => ['class' => 'btn btn-primary']
+                ],
+                'button_delete_options' => [
+                    'label' => 'Supprimer l\'objet',
+                    'attr' => ['class' => 'btn btn-danger']
+                ]
             ])
             ->add('enregistrer', SubmitType::class)
         ;

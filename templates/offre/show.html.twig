@@ -36,6 +36,10 @@
                 <td>{{ offre.description }}</td>
             </tr>
             <tr>
+                <th>État</th>
+                <td>{{ offre.etat }}</td>
+            </tr>
+            <tr>
                 <th>Objets donnés</th>
                 <td>
                 {% for objet in offre.objets %}
@@ -48,7 +52,7 @@
 
     <a class="btn btn-secondary" href="{{ path('app_offre_index') }}">Revenir en arrière</a>
 
-    <a class="btn btn-primary href="{{ path('app_offre_edit', {'id': offre.id}) }}">Modifier</a>
+    <a class="btn btn-primary" href="{{ path('app_offre_edit', {'id': offre.id}) }}">Modifier</a>
 
     {{ include('offre/_delete_form.html.twig') }}
 {% endblock %}

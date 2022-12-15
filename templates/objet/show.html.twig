@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Objet{% endblock %}
+{% block title %}Détails de l'objet{% endblock %}
 
 {% block body %}
-    <h1>Objet</h1>
+    <h1>Détails de l'objet</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Reference</th>
+                <th>Réference</th>
                 <td>{{ objet.reference }}</td>
             </tr>
             <tr>
@@ -16,15 +16,15 @@
                 <td>{{ objet.description }}</td>
             </tr>
             <tr>
-                <th>MontantEstime</th>
+                <th>Montant Estimé (€)</th>
                 <td>{{ objet.montantEstime }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_objet_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('app_objet_index') }}">Revenir en arrière</a>
 
-    <a href="{{ path('app_objet_edit', {'reference': objet.reference}) }}">edit</a>
+    <a class="btn btn-primary" href="{{ path('app_objet_edit', {'reference': objet.reference}) }}">Modifier</a>
 
     {{ include('objet/_delete_form.html.twig') }}
 {% endblock %}

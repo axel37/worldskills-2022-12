@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ObjetRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\Positive;
 
 #[ORM\Entity(repositoryClass: ObjetRepository::class)]
 class Objet
@@ -13,9 +15,11 @@ class Objet
     #[ORM\Column]
     private ?int $reference = null;
 
+    #[Length(max: 255, maxMessage: 'La description ne peut faire plus de 255 caractères.')]
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
+    #[Positive(message: 'Ce montant doit être un nombre positif')]
     #[ORM\Column(nullable: true)]
     private ?float $montantEstime = null;
 

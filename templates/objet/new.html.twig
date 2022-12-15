@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Objet{% endblock %}
+{% block title %}Nouvel Objet{% endblock %}
 
 {% block body %}
-    <h1>Create new Objet</h1>
+    <h1>Créer un objet</h1>
 
     {{ include('objet/_form.html.twig') }}
 
-    <a href="{{ path('app_objet_index') }}">back to list</a>
+    <a class="btn btn-danger" href="{{ path('app_objet_index') }}">Annuler la création</a>
 {% endblock %}

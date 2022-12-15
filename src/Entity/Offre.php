@@ -7,11 +7,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\DiscriminatorColumn;
+use Doctrine\ORM\Mapping\DiscriminatorMap;
+use Doctrine\ORM\Mapping\InheritanceType;
+use Doctrine\ORM\Mapping\MappedSuperclass;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 
+#[InheritanceType('JOINED')]
+#[DiscriminatorColumn(name: 'type', type: 'string')]
+#[DiscriminatorMap(['offre' => Offre::class, 'don' => Don::class])]
 #[ORM\Entity(repositoryClass: OffreRepository::class)]
 class Offre
 {
@@ -56,6 +62,11 @@ class Offre
     public function __construct()
     {
         $this->objets = new ArrayCollection();
+    }
+
+    public function __toString(): string
+    {
+        return 'Offre du ' . $this->dateReception->format('d/m/Y') . ' par ' . $this->nomDonateur . ' ' . $this->prenomDonateur . ' (' . count($this->objets) . ' objets).';
     }
 
     public function getId(): ?int
