@@ -28,7 +28,7 @@ class ObjetController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_objet_new', methods: ['GET', 'POST'])]
+    #[Route('/nouveau', name: 'app_objet_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ObjetRepository $objetRepository): Response
     {
         $objet = new Objet();
@@ -55,7 +55,7 @@ class ObjetController extends AbstractController
         ]);
     }
 
-    #[Route('/{reference}/edit', name: 'app_objet_edit', methods: ['GET', 'POST'])]
+    #[Route('/{reference}/modifier', name: 'app_objet_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Objet $objet, ObjetRepository $objetRepository): Response
     {
         $form = $this->createForm(ObjetType::class, $objet);

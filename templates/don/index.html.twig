@@ -11,9 +11,8 @@
                 <th>Date de réception</th>
                 <th>Nom du donateur</th>
                 <th>Prénom du donateur</th>
-                <th>Tél. du donateur</th>
-                <th>Mail du donateur</th>
                 <th>Description</th>
+                <th>Nombre d'objets</th>
                 <th>Date d'acceptation</th>
                 <th>Actions</th>
             </tr>
@@ -24,9 +23,8 @@
                 <td>{{ don.dateReception ? don.dateReception|date('d-m-Y') : '' }}</td>
                 <td>{{ don.nomDonateur }}</td>
                 <td>{{ don.prenomDonateur }}</td>
-                <td>{{ don.telephoneDonateur }}</td>
-                <td>{{ don.mailDonateur }}</td>
                 <td>{{ don.description }}</td>
+                <td>{{ don.objets|length }}</td>
                 <td>{{ don.dateAcceptation ? don.dateAcceptation|date('d-m-Y') : '' }}</td>
                 <td>
                     <a href="{{ path('app_don_show', {'id': don.id}) }}">Détails</a>
@@ -41,5 +39,6 @@
         </tbody>
     </table>
 
-    <a class="btn btn-primary" href="{{ path('app_don_new') }}">Nouveau don</a>
+    <p class="text-muted">Pour renseigner un don, <a href={{ path('app_offre_new') }}>créez une offre de don</a>.</p>
+    {# <a class="btn btn-primary" href="{{ path('app_don_new') }}">Nouveau don</a> #}
 {% endblock %}

@@ -21,7 +21,7 @@ class DonController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_don_new', methods: ['GET', 'POST'])]
+    #[Route('/nouveau', name: 'app_don_new', methods: ['GET', 'POST'])]
     public function new(Request $request, DonRepository $donRepository): Response
     {
         $don = new Don();
@@ -48,7 +48,7 @@ class DonController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_don_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/modifier', name: 'app_don_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Don $don, DonRepository $donRepository): Response
     {
         $form = $this->createForm(DonType::class, $don);

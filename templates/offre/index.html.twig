@@ -12,8 +12,6 @@
                 <th>Date de réception</th>
                 <th>Nom du donateur</th>
                 <th>Prénom du donateur</th>
-                <th>Tél. du donateur</th>
-                <th>Mail du donateur</th>
                 <th>Description de l'offre</th>
                 <th>État</th>
                 <th>Nombre d'objets</th>
@@ -27,8 +25,6 @@
                 <td>{{ offre.dateReception ? offre.dateReception|date('d-m-Y') : '' }}</td>
                 <td>{{ offre.nomDonateur }}</td>
                 <td>{{ offre.prenomDonateur }}</td>
-                <td>{{ offre.telephoneDonateur }}</td>
-                <td>{{ offre.mailDonateur }}</td>
                 <td>{{ offre.description }}</td>
                 <td>{{ offre.etat }}</td>
                 <td>{{ offre.objets|length }}</td>
@@ -51,5 +47,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_offre_new') }}">Nouvelle offre</a>
+    <a class="btn btn-primary" href="{{ path('app_offre_new') }}">Nouvelle offre</a>
 {% endblock %}

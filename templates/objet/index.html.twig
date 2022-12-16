@@ -10,6 +10,7 @@
         <thead>
             <tr>
                 <th>Réference</th>
+                <th>Type</th>
                 <th>Description</th>
                 <th>Montant estimé (€)</th>
                 <th>Actions</th>
@@ -19,6 +20,7 @@
         {% for objet in objetsEnStock %}
             <tr>
                 <td>{{ objet.reference }}</td>
+                <td>{{ objet.type }}</td>
                 <td>{{ objet.description }}</td>
                 <td>{{ objet.montantEstime }}</td>
                 <td>
@@ -42,6 +44,7 @@
         <thead>
             <tr>
                 <th>Réference</th>
+                <th>Type</th>
                 <th>Description</th>
                 <th>Montant estimé (€)</th>
                 <th>Actions</th>
@@ -51,6 +54,7 @@
         {% for objet in objetsEnAttente %}
             <tr>
                 <td>{{ objet.reference }}</td>
+                <td>{{ objet.type }}</td>
                 <td>{{ objet.description }}</td>
                 <td>{{ objet.montantEstime }}</td>
                 <td>
@@ -65,4 +69,6 @@
         {% endfor %}
         </tbody>
     </table>
+
+    <p class="text-muted">Pour enregistrer un objet, <a href={{ path('app_offre_index') }}>ajoutez-le à une offre</a>.</p>
 {% endblock %}

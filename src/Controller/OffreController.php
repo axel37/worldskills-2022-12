@@ -21,7 +21,7 @@ class OffreController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_offre_new', methods: ['GET', 'POST'])]
+    #[Route('/nouvelle', name: 'app_offre_new', methods: ['GET', 'POST'])]
     public function new(Request $request, OffreRepository $offreRepository): Response
     {
         $offre = new Offre();
@@ -48,7 +48,7 @@ class OffreController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_offre_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/modifier', name: 'app_offre_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Offre $offre, OffreRepository $offreRepository): Response
     {
         $form = $this->createForm(OffreType::class, $offre);
