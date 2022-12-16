@@ -6,6 +6,7 @@ use App\Entity\Don;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+// Méthodes / requêtes de récupération de Dons.
 /**
  * @extends ServiceEntityRepository<Don>
  *

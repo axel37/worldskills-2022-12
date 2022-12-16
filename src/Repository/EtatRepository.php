@@ -6,6 +6,7 @@ use App\Entity\Etat;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+// Méthodes / requêtes de récupération d'États.
 /**
  * @extends ServiceEntityRepository<Etat>
  *
