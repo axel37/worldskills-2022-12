@@ -2,7 +2,9 @@
 
 namespace App\Repository;
 
+use App\Entity\Etat;
 use App\Entity\Objet;
+use App\Entity\Offre;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -37,6 +39,21 @@ class ObjetRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    /**
+     * Renvoie les objets "en attente", dont l'offre est en cours de traitement
+     */
+    public function findByEtat(string $etat): array
+    {
+        return $this->createQueryBuilder('objet')
+            ->andWhere('etat.libelle = :etat')
+            ->innerJoin('objet.offre', 'offre')
+            ->innerJoin('offre.etat', 'etat')
+            ->setParameter('etat', $etat)
+            ->getQuery()
+            ->getResult()
+            ;
     }
 
 //    /**

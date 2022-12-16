@@ -16,8 +16,15 @@ class ObjetController extends AbstractController
     #[Route('/', name: 'app_objet_index', methods: ['GET'])]
     public function index(ObjetRepository $objetRepository): Response
     {
+        $objets = $objetRepository->findAll();
+        $objetsEnAttente = $objetRepository->findByEtat("En cours de traitement");
+        $objetsEnStock = $objetRepository->findByEtat("Acceptée");
+
+
         return $this->render('objet/index.html.twig', [
-            'objets' => $objetRepository->findAll(),
+            'objets' => $objets,
+            'objetsEnAttente' => $objetsEnAttente,
+            'objetsEnStock' => $objetsEnStock
         ]);
     }
 
