@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Offre;
 use App\Form\OffreType;
+use App\Repository\EtatRepository;
 use App\Repository\OffreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,9 +23,10 @@ class OffreController extends AbstractController
     }
 
     #[Route('/nouvelle', name: 'app_offre_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, OffreRepository $offreRepository): Response
+    public function new(Request $request, OffreRepository $offreRepository, EtatRepository $etatRepository): Response
     {
         $offre = new Offre();
+        $offre->setEtat($etatRepository->findOneByLibelle('En cours de traitement'));
         $form = $this->createForm(OffreType::class, $offre);
         $form->handleRequest($request);
 

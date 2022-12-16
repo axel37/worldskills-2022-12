@@ -11,9 +11,11 @@ use Doctrine\ORM\Mapping\DiscriminatorColumn;
 use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Doctrine\ORM\Mapping\InheritanceType;
 use Doctrine\ORM\Mapping\MappedSuperclass;
+use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\Valid;
 
 #[InheritanceType('JOINED')]
 #[DiscriminatorColumn(name: 'type', type: 'string')]
@@ -56,6 +58,7 @@ class Offre
     #[ORM\JoinColumn(nullable: false, name: 'id_etat')]
     private ?Etat $etat = null;
 
+    #[Count(min: 1, minMessage: "Une offre de don doit proposer au moins 1 objet.")]
     #[ORM\OneToMany(mappedBy: 'offre', targetEntity: Objet::class, orphanRemoval: true, cascade: ['persist'])]
     private Collection $objets;
 
