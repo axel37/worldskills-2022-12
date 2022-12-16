@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche d'objets{% endblock %}
+
+{% block body %}
+<h1>Recherche d'objets</h1>
+
+{{ form(form) }}
+
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>Réference</th>
+                <th>Description</th>
+                <th>Don</th>
+                <th>État Offre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for objet in objets %}
+            <tr>
+                <td>{{ objet.reference }}</td>
+                <td>{{ objet.description }}</td>
+                <td>
+                    <a href="{{ path('app_offre_show', {'id': objet.offre.id}) }}">{{ objet.offre.dateReception|date('d/m/Y') }} par {{ objet.offre.prenomDonateur }} {{ objet.offre.nomDonateur }}</a>
+                </td>
+                <td>{{ objet.offre.etat }}</td>
+                <td>
+                    <a href="{{ path('app_objet_show', {'reference': objet.reference}) }}">Voir</a>
+                    <a href="{{ path('app_objet_edit', {'reference': objet.reference}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
