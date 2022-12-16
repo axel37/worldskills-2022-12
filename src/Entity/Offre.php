@@ -58,7 +58,6 @@ class Offre
     #[ORM\JoinColumn(nullable: false, name: 'id_etat')]
     private ?Etat $etat = null;
 
-    #[Count(min: 1, minMessage: "Une offre de don doit proposer au moins 1 objet.")]
     #[ORM\OneToMany(mappedBy: 'offre', targetEntity: Objet::class, orphanRemoval: true, cascade: ['persist'])]
     private Collection $objets;
 

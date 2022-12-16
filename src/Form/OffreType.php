@@ -37,9 +37,6 @@ class OffreType extends AbstractType
             ])
             ->add('objets', LiveCollectionType::class, [
                 'entry_type' => ObjetSimpleType::class,
-                // 'entry_options' => [
-                //     'class' => Objet::class
-                // ],
                 'allow_add' => true,
                 'allow_delete' => true,
                 'button_add_options' => [
@@ -50,9 +47,9 @@ class OffreType extends AbstractType
                     'label' => 'Supprimer l\'objet',
                     'attr' => ['class' => 'btn btn-danger']
                 ],
-                // 'constraints' => [
-                //     new Count(['min' => 1, 'minMessage' => 'Une offre de don doit proposer des objets.']),
-                // ]
+                'constraints' => [
+                    new Count(['min' => 1, 'minMessage' => 'Une offre de don doit proposer au moins 1 objet.']),
+                ]
             ])
             ->add('enregistrer', SubmitType::class)
         ;

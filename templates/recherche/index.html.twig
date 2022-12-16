@@ -12,6 +12,7 @@
         <thead>
             <tr>
                 <th>Réference</th>
+                <th>Type</th>
                 <th>Description</th>
                 <th>Don</th>
                 <th>État Offre</th>
@@ -22,6 +23,7 @@
         {% for objet in objets %}
             <tr>
                 <td>{{ objet.reference }}</td>
+                <td>{{ objet.type }}</td>
                 <td>{{ objet.description }}</td>
                 <td>
                     <a href="{{ path('app_offre_show', {'id': objet.offre.id}) }}">{{ objet.offre.dateReception|date('d/m/Y') }} par {{ objet.offre.prenomDonateur }} {{ objet.offre.nomDonateur }}</a>

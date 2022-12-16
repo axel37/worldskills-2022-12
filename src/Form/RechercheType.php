@@ -22,14 +22,16 @@ class RechercheType extends AbstractType
                 'class' => TypeMateriel::class,
                 'placeholder' => 'Indifférent',
             ])
-            ->add('texte', TextType::class, [
-                'label' => 'Description',
-                'help' => 'Rechercher dans la description de l\'objet.',
-                'required' => false,
-            ])
             ->add('etat', EntityType::class, [
                 'class' => Etat::class,
                 'label' => 'État de l\'offre',
+                'required' => false,
+                'placeholder' => 'Indifférent',
+                'help' => 'Par défaut, les objets refusés seront masqués.'
+            ])
+            ->add('texte', TextType::class, [
+                'label' => 'Description',
+                'help' => 'Rechercher dans la description de l\'objet.',
                 'required' => false,
             ])
             ->add('rechercher', SubmitType::class);
