@@ -1,5 +1,7 @@
+{# Vue dont héritent les autres pages de l'application #}
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Petits Frères des Pauvres{% endblock %}</title>
@@ -14,6 +16,7 @@
         {% endblock %}
     </head>
     <body>
+    {# Barre de navigation #}
         <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
         <div class="container">
         <span class="navbar-brand">Petits Frères des Pauvres</span>
@@ -33,7 +36,8 @@
                 </ul>
                 </div>
             </nav>
-
+            
+    {# Contenu principal #}
         <div class="container">
             {% block body %}{% endblock %}
         </div>

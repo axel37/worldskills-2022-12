@@ -7,7 +7,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-// Formulaire de création d'objet destiné à être intégré dans le formulaire d'offre
+/**
+ * Formulaire de création d'objet destiné à être intégré dans le formulaire d'offre
+ */
 class ObjetSimpleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void

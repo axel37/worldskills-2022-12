@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Routes de gestion des offres.
+ */
 #[Route('/offre')]
 class OffreController extends AbstractController
 {

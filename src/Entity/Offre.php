@@ -17,6 +17,10 @@ use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Valid;
 
+/**
+ * Une Offre est une proposition de Don.
+ * Si elle est acceptée, elle sera transformée en Don.
+ */
 #[InheritanceType('JOINED')]
 #[DiscriminatorColumn(name: 'type', type: 'string')]
 #[DiscriminatorMap(['offre' => Offre::class, 'don' => Don::class])]

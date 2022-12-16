@@ -7,6 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Positive;
 
+/**
+ * Un Objet est le sujet d'un don / d'une offre.
+ */
 #[ORM\Entity(repositoryClass: ObjetRepository::class)]
 class Objet
 {

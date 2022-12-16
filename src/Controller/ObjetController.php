@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Routes de gestions des objets.
+ */
 #[Route('/objet')]
 class ObjetController extends AbstractController
 {

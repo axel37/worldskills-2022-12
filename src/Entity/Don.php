@@ -9,7 +9,9 @@ use Doctrine\ORM\Mapping\AttributeOverride;
 use Doctrine\ORM\Mapping\AttributeOverrides;
 use Doctrine\ORM\Mapping\Column;
 
-
+/**
+ * Un Don est une Offre qui a été acceptée.
+ */
 #[ORM\Entity(repositoryClass: DonRepository::class)]
 class Don extends Offre
 {

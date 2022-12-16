@@ -9,6 +9,10 @@ use App\Repository\DonRepository;
 use App\Repository\OffreRepository;
 use DateTimeImmutable;
 
+/**
+ * EventListener écoutant l'évènement doctrine "postUpdate" pour l'entité Offre.
+ * Quand une offre est enregistrée avec l'état "Acceptée", elle est transformée en Don.
+ */
 class OffreDoctrineEventListener
 {
 

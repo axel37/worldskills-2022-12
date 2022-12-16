@@ -11,7 +11,10 @@ use Symfony\UX\LiveComponent\LiveCollectionTrait;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\Component\Form\FormInterface;
 
-
+/**
+ * LiveComponent comprenant le formulaire d'offre.
+ * Il permet de mettre à jour la liste d'objets en temps réel grâce à des requêtes AJAX.
+ */
 #[AsLiveComponent(name: 'offre_form')]
 class OffreFormComponent extends AbstractController
 {

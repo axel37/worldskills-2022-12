@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Route pour la recherche.
+ */
 class RechercheController extends AbstractController
 {
     #[Route('/recherche', name: 'app_recherche_index')]

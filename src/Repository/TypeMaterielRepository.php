@@ -6,6 +6,7 @@ use App\Entity\TypeMateriel;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+// Méthodes / requêtes de récupération de TypeMateriels.
 /**
  * @extends ServiceEntityRepository<TypeMateriel>
  *

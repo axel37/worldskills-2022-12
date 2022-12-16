@@ -16,6 +16,9 @@ use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 
+/**
+ * Formulaire d'une Offre.
+ */
 class OffreType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void

@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Les routes utilisées pour la gestion des Dons.
+ */
 #[Route('/don')]
 class DonController extends AbstractController
 {

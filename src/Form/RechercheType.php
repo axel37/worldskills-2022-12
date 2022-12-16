@@ -11,6 +11,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Formulaire de recherche.
+ * Il n'est pas lié à une entité.
+ */
 class RechercheType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
