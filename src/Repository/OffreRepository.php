@@ -39,6 +39,18 @@ class OffreRepository extends ServiceEntityRepository
         }
     }
 
+    public function findNonAccepte(): array
+    {
+        return $this->createQueryBuilder('offre')
+            ->andWhere('etat.libelle != :etat')
+            ->innerJoin('offre.etat', 'etat')
+            ->setParameter('etat', 'Acceptée')
+            ->orderBy('offre.dateReception', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 //    /**
 //     * @return Offre[] Returns an array of Offre objects
 //     */

@@ -17,7 +17,7 @@ class OffreController extends AbstractController
     public function index(OffreRepository $offreRepository): Response
     {
         return $this->render('offre/index.html.twig', [
-            'offres' => $offreRepository->findAll(),
+            'offres' => $offreRepository->findNonAccepte(),
         ]);
     }
 

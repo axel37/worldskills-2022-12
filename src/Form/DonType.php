@@ -19,7 +19,6 @@ class DonType extends AbstractType
             ->add('mailDonateur')
             ->add('description')
             ->add('dateAcceptation')
-            ->add('etat')
         ;
     }
 
