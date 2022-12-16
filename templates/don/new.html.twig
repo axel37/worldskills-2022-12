@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Don{% endblock %}
+
+{% block body %}
+    <h1>Nouveau Don</h1>
+
+    {{ include('don/_form.html.twig') }}
+
+    <a class="btn btn-danger" href="{{ path('app_don_index') }}">Annuler la création</a>
+{% endblock %}

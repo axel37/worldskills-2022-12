@@ -14,14 +14,12 @@ class OffreDoctrineEventListener
 
     public function __construct(private DonRepository $donRepository, private OffreRepository $offreRepository)
     {
-        
     }
 
+    // Transformer les offres acceptées en dons lors de leur enregistrement
     public function postUpdate(Offre $offre, LifecycleEventArgs $args): void
     {
-        // Si l'état est passé à Accepté, transformé l'offre en don
-        if (!($offre instanceof Don) && $offre->getEtat()->getLibelle() == "Acceptée")
-        {
+        if (!($offre instanceof Don) && $offre->getEtat()->getLibelle() == "Acceptée") {
             $don = new Don();
             $don->setDateReception($offre->getDateReception());
             $don->setNomDonateur($offre->getNomDonateur());

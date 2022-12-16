@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Don{% endblock %}
+
+{% block body %}
+    <h1>Don</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Date de réception</th>
+                <td>{{ don.dateReception ? don.dateReception|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nom du donateur</th>
+                <td>{{ don.nomDonateur }}</td>
+            </tr>
+            <tr>
+                <th>Prénom du donateur</th>
+                <td>{{ don.prenomDonateur }}</td>
+            </tr>
+            <tr>
+                <th>Tél. du donateur</th>
+                <td>{{ don.telephoneDonateur }}</td>
+            </tr>
+            <tr>
+                <th>Mail du donateur</th>
+                <td>{{ don.mailDonateur }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ don.description }}</td>
+            </tr>
+            <tr>
+                <th>Date d'acceptation de l'offre</th>
+                <td>{{ don.dateAcceptation ? don.dateAcceptation|date('d-m-Y') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('app_don_index') }}">Revenir en arrière</a>
+
+    <a class="btn btn-primary" href="{{ path('app_don_edit', {'id': don.id}) }}">Modifier</a>
+
+    {{ include('don/_delete_form.html.twig') }}
+{% endblock %}

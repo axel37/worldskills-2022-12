@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les dons{% endblock %}
+
+{% block body %}
+    <h1>Tous les dons</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date de réception</th>
+                <th>Nom du donateur</th>
+                <th>Prénom du donateur</th>
+                <th>Tél. du donateur</th>
+                <th>Mail du donateur</th>
+                <th>Description</th>
+                <th>Date d'acceptation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for don in dons %}
+            <tr>
+                <td>{{ don.dateReception ? don.dateReception|date('d-m-Y') : '' }}</td>
+                <td>{{ don.nomDonateur }}</td>
+                <td>{{ don.prenomDonateur }}</td>
+                <td>{{ don.telephoneDonateur }}</td>
+                <td>{{ don.mailDonateur }}</td>
+                <td>{{ don.description }}</td>
+                <td>{{ don.dateAcceptation ? don.dateAcceptation|date('d-m-Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_don_show', {'id': don.id}) }}">Détails</a>
+                    <a href="{{ path('app_don_edit', {'id': don.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucun résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_don_new') }}">Nouveau don</a>
+{% endblock %}

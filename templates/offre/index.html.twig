@@ -33,8 +33,14 @@
                 <td>{{ offre.etat }}</td>
                 <td>{{ offre.objets|length }}</td>
                 <td>
+                {# Renvoyer vers le formulaire de don s'il s'agit d'une offre acceptée #}
+                {% if offre.dateAcceptation is defined %}
+                    <a href="{{ path('app_don_show', {'id': offre.id}) }}">Détails</a>
+                    <a href="{{ path('app_don_edit', {'id': offre.id}) }}">Modifier</a>
+                {% else %}
                     <a href="{{ path('app_offre_show', {'id': offre.id}) }}">Détails</a>
                     <a href="{{ path('app_offre_edit', {'id': offre.id}) }}">Modifier</a>
+                {% endif %}
                 </td>
             </tr>
         {% else %}
